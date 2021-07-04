@@ -24,15 +24,18 @@ export function CartInfoProvider({ children }) {
     const { token } = useUserInfo();
 
     async function fetchProduct(product_id) {
-        const response = await fetch("http://localhost:9001/products/search", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                _id: product_id,
-            }),
-        });
+        const response = await fetch(
+            "https://e-com-backend-arachin.herokuapp.com/products/search",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    _id: product_id,
+                }),
+            }
+        );
 
         if (response.ok) {
             const product = await response.json();
@@ -60,16 +63,19 @@ export function CartInfoProvider({ children }) {
     async function patchCart(token, products) {
         if (products.__proto__) delete products.__proto__;
         console.log("PATCH CART ::::", products);
-        const response = await fetch("http://localhost:9001/cart", {
-            method: "PATCH",
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                products,
-            }),
-        });
+        const response = await fetch(
+            "https://e-com-backend-arachin.herokuapp.com/cart",
+            {
+                method: "PATCH",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    products,
+                }),
+            }
+        );
     }
 
     const updateCartInfo = {
@@ -122,16 +128,19 @@ export function CartInfoProvider({ children }) {
 
         placeOrder: function () {
             async function orderUpdate() {
-                const res = await fetch("http://localhost:9001/order", {
-                    method: "POST",
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        history: cart,
-                    }),
-                });
+                const res = await fetch(
+                    "https://e-com-backend-arachin.herokuapp.com/order",
+                    {
+                        method: "POST",
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            history: cart,
+                        }),
+                    }
+                );
 
                 if (res) {
                     console.log(await res.json());
@@ -149,12 +158,15 @@ export function CartInfoProvider({ children }) {
     useEffect(() => {
         // console.log("in cart info, ", token);
         async function fetchCart(token) {
-            const response = await fetch("http://localhost:9001/cart", {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+            const response = await fetch(
+                "https://e-com-backend-arachin.herokuapp.com/cart",
+                {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
 
             if (response.ok) {
                 const cartInfo = await response.json();

@@ -29,12 +29,15 @@ export function UserInfoProvider({ children }) {
 
     useEffect(() => {
         async function fetchUser(token) {
-            const response = await fetch("http://localhost:9001/users/me", {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+            const response = await fetch(
+                "https://e-com-backend-arachin.herokuapp.com/users/me",
+                {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
 
             if (response.ok) {
                 const userinfo = await response.json();
