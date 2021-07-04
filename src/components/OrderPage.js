@@ -8,12 +8,15 @@ export default function OrderPage(props) {
     const [orderHistory, setOrderHistory] = useState([]);
 
     async function fetchOrderHistory() {
-        const response = await fetch("http://localhost:9001/order", {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
+        const response = await fetch(
+            "https://e-com-backend-arachin.herokuapp.com/order",
+            {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
 
         if (response.ok) {
             const data = await response.json();

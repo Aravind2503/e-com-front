@@ -15,12 +15,15 @@ export default function Navbar(props) {
         });
 
         async function deleteServerToken() {
-            await fetch("http://localhost:9001/users/logout", {
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+            await fetch(
+                "https://e-com-backend-arachin.herokuapp.com/users/logout",
+                {
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
         }
         deleteServerToken();
 

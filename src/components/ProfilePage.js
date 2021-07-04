@@ -27,7 +27,10 @@ const ProfilePage = () => {
                     Authorization: `Bearer ${token}`,
                 },
             };
-            fetch("http://localhost:9001/users/me", requestOptions)
+            fetch(
+                "https://e-com-backend-arachin.herokuapp.com/users/me",
+                requestOptions
+            )
                 .then((response) => response.json())
                 .then((data) => {
                     // setUser(data); // delete all the items from the cart here
@@ -56,7 +59,10 @@ const ProfilePage = () => {
                 address,
             }),
         };
-        fetch("http://localhost:9001/users/me", requestOptions)
+        fetch(
+            "https://e-com-backend-arachin.herokuapp.com/users/me",
+            requestOptions
+        )
             .then((response) => response.json())
             .then((data) => {
                 setUser(data);
@@ -75,7 +81,10 @@ const ProfilePage = () => {
                 Authorization: `Bearer ${token}`,
             },
         };
-        fetch("http://localhost:9001/users/me", requestOptions)
+        fetch(
+            "https://e-com-backend-arachin.herokuapp.com/users/me",
+            requestOptions
+        )
             .then((response) => response.json())
             .then((data) => {
                 setUser(data);

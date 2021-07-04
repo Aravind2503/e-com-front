@@ -22,18 +22,21 @@ export default function RegisterPage(props) {
             password,
         });
         async function register() {
-            const response = await fetch("http://localhost:9001/users", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name,
-                    email,
-                    age,
-                    password,
-                }),
-            });
+            const response = await fetch(
+                "https://e-com-backend-arachin.herokuapp.com/users",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        age,
+                        password,
+                    }),
+                }
+            );
 
             console.log("response", response);
             if (response.ok) {

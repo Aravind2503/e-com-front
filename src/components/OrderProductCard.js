@@ -12,15 +12,18 @@ export default function OrderProductCard({ products_quantity, item }) {
     const dropup = useRef();
 
     async function fetchProduct(product_id) {
-        const response = await fetch("http://localhost:9001/products/search", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                _id: product_id,
-            }),
-        });
+        const response = await fetch(
+            "https://e-com-backend-arachin.herokuapp.com/products/search",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    _id: product_id,
+                }),
+            }
+        );
 
         if (response.ok) {
             const product = await response.json();

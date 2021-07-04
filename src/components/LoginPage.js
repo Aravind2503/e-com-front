@@ -16,7 +16,7 @@ export default function LoginPage(props) {
         async function login() {
             try {
                 const response = await fetch(
-                    "http://localhost:9001/users/login",
+                    "https://e-com-backend-arachin.herokuapp.com/users/login",
                     {
                         method: "POST",
                         headers: {

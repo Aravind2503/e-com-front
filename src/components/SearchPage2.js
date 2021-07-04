@@ -75,7 +75,10 @@ export default function SearchPage2() {
             };
         }
 
-        fetch("http://localhost:9001/products/search", requestOptions)
+        fetch(
+            "https://e-com-backend-arachin.herokuapp.com/products/search",
+            requestOptions
+        )
             .then((response) => response.json())
             .then((data) => {
                 if (isMounted) setProducts(data);
