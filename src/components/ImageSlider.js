@@ -39,7 +39,7 @@ const ImageSlider = ({ images }) => {
                             className={
                                 index === current
                                     ? "slide active image-slider-div"
-                                    : "slide image-slider-div"
+                                    : "slide image-slider-div d-none"
                             }
                             key={index}
                             style={{ border: "2px solid black" }}
