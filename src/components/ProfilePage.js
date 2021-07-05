@@ -182,5 +182,3 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
-
-const profPagestyle = {};

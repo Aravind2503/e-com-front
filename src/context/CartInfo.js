@@ -21,7 +21,7 @@ export function CartInfoProvider({ children }) {
     //cart is the list of products
     const [cart, setCart] = useState({ length: 0 });
     const [cartProducts, setCartProducts] = useState([]);
-    const { token } = useUserInfo();
+    const { token, address: userAddress } = useUserInfo();
 
     async function fetchProduct(product_id) {
         const response = await fetch(
@@ -54,7 +54,7 @@ export function CartInfoProvider({ children }) {
                 // );
 
                 setCartProducts((p) => [...p, ...product]);
-                console.log(product_id, "name: ", product, cartProducts);
+                // console.log(product_id, "name: ", product, cartProducts);
             }
             return product;
         }
@@ -62,7 +62,7 @@ export function CartInfoProvider({ children }) {
 
     async function patchCart(token, products) {
         if (products.__proto__) delete products.__proto__;
-        console.log("PATCH CART ::::", products);
+        // console.log("PATCH CART ::::", products);
         const response = await fetch(
             "https://e-com-backend-arachin.herokuapp.com/cart",
             {
@@ -138,6 +138,7 @@ export function CartInfoProvider({ children }) {
                         },
                         body: JSON.stringify({
                             history: cart,
+                            address: userAddress,
                         }),
                     }
                 );
