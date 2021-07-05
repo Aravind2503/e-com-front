@@ -36,6 +36,14 @@ export default function SearchPage2() {
             setSubCategories(["Appliances", "Utensils"]);
         } else if (category === "Stationery") {
             setSubCategories(["Art Supplies", "School"]);
+        } else if (category === "Selfcare") {
+            setSubCategories(["Women", "Men", "Unisex"]);
+        } else if (category === "Toys") {
+            setSubCategories([
+                "Upto 3 years",
+                "3 to 8 years",
+                "8 years and Up",
+            ]);
         }
 
         var requestOptions;
