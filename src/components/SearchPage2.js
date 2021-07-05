@@ -35,7 +35,7 @@ export default function SearchPage2() {
         } else if (category === "Home") {
             setSubCategories(["Appliances", "Utensils"]);
         } else if (category === "Stationery") {
-            setSubCategories(["Art Supplies", "School"]);
+            setSubCategories(["Art Supplies", "General"]);
         } else if (category === "Selfcare") {
             setSubCategories(["Women", "Men", "Unisex"]);
         } else if (category === "Toys") {
